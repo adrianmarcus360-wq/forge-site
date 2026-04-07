@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bone: #F5F0EB;
+  --color-ivory: #FAF8F5;
+  --color-stone: #E8E2DB;
+  --color-charcoal: #2A2A2A;
+  --color-graphite: #1A1A1A;
+  --color-slate: #6B6B6B;
+  --color-steel: #9A9A9A;
+  --color-teal: #1A6B6A;
+  --color-teal-dark: #145554;
+  --color-teal-light: #1E7F7E;
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-teal);
+  color: white;
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-steel);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-slate);
+}
