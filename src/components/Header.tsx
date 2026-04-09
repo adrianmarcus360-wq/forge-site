@@ -1,15 +1,13 @@
 "use client";
-
-import Link from "next/link";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
-const navItems = [
-  { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Proof", href: "/proof" },
-  { label: "About", href: "/about" },
+const navLinks = [
+  { label: "SERVICES", href: "/services" },
+  { label: "HOW IT WORKS", href: "/how-it-works" },
+  { label: "INDUSTRIES", href: "/industries" },
+  { label: "PROOF", href: "/proof" },
+  { label: "ABOUT", href: "/about" },
 ];
 
 export default function Header() {
@@ -17,118 +15,66 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const fn = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
   }, []);
 
   return (
-    <>
-      <motion.header
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-obsidian/80 backdrop-blur-xl border-b border-white/5"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-[72px] flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="relative group">
-            <span className="text-[15px] font-semibold tracking-[0.25em] uppercase text-stone transition-colors duration-300 group-hover:text-white">
-              Forge
+    <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, background: "white", boxShadow: scrolled ? "0 1px 0 #E5E5E5" : "none", transition: "box-shadow 0.3s" }}>
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "8px", textDecoration: "none" }}>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect width="28" height="28" fill="#131313"/>
+            <text x="6" y="20" fill="white" style={{ fontFamily: "Satoshi, sans-serif", fontWeight: "bold", fontSize: "16px" }}>F</text>
+          </svg>
+          <span style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 700, fontSize: "18px", color: "#131313", letterSpacing: "-0.5px" }}>Forge</span>
+        </Link>
+
+        <nav style={{ display: "flex", alignItems: "center", gap: "36px" }} className="hidden lg:flex">
+          {navLinks.map(l => (
+            <Link key={l.href} href={l.href} style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 500, fontSize: "12px", letterSpacing: "0.08em", color: "#131313", textDecoration: "none" }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.5"}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
+            >{l.label}</Link>
+          ))}
+        </nav>
+
+        <div className="hidden lg:flex" style={{ alignItems: "center", gap: "16px" }}>
+          <Link href="/contact" style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 500, fontSize: "14px", color: "white", background: "#131313", padding: "10px 20px", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+            Book Strategy Call
+            <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 18, height: 18, background: "white" }}>
+              <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+                <path d="M1 9L9 1M9 1H3M9 1V7" stroke="#131313" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </span>
-            <span className="absolute -bottom-1 left-0 w-0 h-px bg-teal transition-all duration-300 group-hover:w-full" />
           </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="relative text-[11px] font-medium tracking-[0.15em] uppercase text-steel hover:text-stone transition-colors duration-300 group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-teal/50 transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
-            <Link
-              href="/contact"
-              className="ml-4 px-6 py-2.5 text-[11px] font-medium tracking-[0.15em] uppercase border border-teal/40 text-teal hover:bg-teal hover:text-white transition-all duration-300"
-            >
-              Book a Call
-            </Link>
-          </nav>
-
-          {/* Mobile Toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden relative w-6 h-5 flex flex-col justify-between"
-            aria-label="Menu"
-          >
-            <motion.span
-              animate={mobileOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-              className="w-full h-px bg-stone origin-center"
-            />
-            <motion.span
-              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="w-full h-px bg-stone"
-            />
-            <motion.span
-              animate={mobileOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-              className="w-full h-px bg-stone origin-center"
-            />
-          </button>
         </div>
-      </motion.header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-obsidian/95 backdrop-blur-xl flex items-center justify-center lg:hidden"
-          >
-            <nav className="flex flex-col items-center gap-8">
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08 }}
-                >
-                  <Link
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-2xl font-serif text-stone hover:text-teal transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: navItems.length * 0.08 }}
-              >
-                <Link
-                  href="/contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="mt-4 px-8 py-3 border border-teal text-teal text-sm tracking-wider uppercase hover:bg-teal hover:text-white transition-all"
-                >
-                  Book a Call
-                </Link>
-              </motion.div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+        <button className="lg:hidden" onClick={() => setMobileOpen(!mobileOpen)} style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", display: "flex", flexDirection: "column", gap: "5px" }}>
+          <span style={{ display: "block", width: "20px", height: "1.5px", background: "#131313", transition: "all 0.2s", transform: mobileOpen ? "rotate(45deg) translateY(6.5px)" : "none" }}/>
+          <span style={{ display: "block", width: "20px", height: "1.5px", background: "#131313", opacity: mobileOpen ? 0 : 1 }}/>
+          <span style={{ display: "block", width: "20px", height: "1.5px", background: "#131313", transition: "all 0.2s", transform: mobileOpen ? "rotate(-45deg) translateY(-6.5px)" : "none" }}/>
+        </button>
+      </div>
+
+      {mobileOpen && (
+        <div className="lg:hidden nav-overlay" style={{ background: "white", borderTop: "1px solid #E5E5E5", padding: "24px 40px 32px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            {navLinks.map(l => (
+              <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)} style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 500, fontSize: "14px", letterSpacing: "0.06em", color: "#131313", textDecoration: "none" }}>{l.label}</Link>
+            ))}
+            <Link href="/contact" onClick={() => setMobileOpen(false)} style={{ fontFamily: "Satoshi, sans-serif", fontWeight: 500, fontSize: "14px", color: "white", background: "#131313", padding: "12px 24px", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px", alignSelf: "flex-start" }}>
+              Book Strategy Call
+              <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 18, height: 18, background: "white" }}>
+                <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
+                  <path d="M1 9L9 1M9 1H3M9 1V7" stroke="#131313" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </Link>
+          </div>
+        </div>
+      )}
+    </header>
   );
 }
