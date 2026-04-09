@@ -1,79 +1,52 @@
+"use client";
+
 import Link from "next/link";
 
 const footerLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/industries", label: "Industries" },
-  { href: "/how-it-works", label: "How Forge Works" },
-  { href: "/proof", label: "Proof" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Proof", href: "/proof" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-graphite text-ivory/80">
-      <div className="max-w-wide mx-auto px-6 lg:px-12 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
+    <footer className="relative bg-obsidian border-t border-white/[0.04]">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-16">
+        <div className="flex flex-col lg:flex-row justify-between gap-12">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <span className="font-serif text-2xl font-semibold text-ivory block mb-4">
+          <div>
+            <span className="text-[15px] font-semibold tracking-[0.25em] uppercase text-stone">
               Forge
             </span>
-            <p className="text-sm leading-relaxed text-ivory/50 max-w-xs">
-              Premium AI transformation for manufacturing.
+            <p className="text-[13px] text-steel/40 mt-3 max-w-xs leading-relaxed">
+              Premium AI transformation for manufacturers who care about uptime.
             </p>
           </div>
 
-          {/* Nav */}
-          <div className="md:col-span-1">
-            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-ivory/40 mb-6">
-              Navigation
-            </h4>
-            <nav className="flex flex-col gap-3">
-              {footerLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-ivory/60 hover:text-ivory transition-colors duration-200"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Contact */}
-          <div className="md:col-span-1">
-            <h4 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-ivory/40 mb-6">
-              Connect
-            </h4>
-            <div className="flex flex-col gap-3">
+          {/* Links */}
+          <div className="flex flex-wrap gap-x-8 gap-y-3">
+            {footerLinks.map((link) => (
               <Link
-                href="/contact"
-                className="text-sm text-ivory/60 hover:text-ivory transition-colors duration-200"
+                key={link.href}
+                href={link.href}
+                className="text-[11px] tracking-[0.15em] uppercase text-steel/40 hover:text-teal transition-colors duration-300"
               >
-                Book a strategy call
+                {link.label}
               </Link>
-              <Link
-                href="/contact"
-                className="text-sm text-ivory/60 hover:text-ivory transition-colors duration-200"
-              >
-                Discuss a pilot
-              </Link>
-              <span className="text-sm text-ivory/40 mt-2">
-                LinkedIn →
-              </span>
-            </div>
+            ))}
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="mt-16 pt-8 border-t border-ivory/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <p className="text-xs text-ivory/30">
+        <div className="mt-16 pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-[11px] text-steel/30 tracking-wide">
             © {new Date().getFullYear()} Forge. All rights reserved.
           </p>
-          <p className="text-xs text-ivory/30">
-            Premium AI transformation for manufacturing
+          <p className="text-[11px] text-steel/20 tracking-wide">
+            Engineered with precision.
           </p>
         </div>
       </div>

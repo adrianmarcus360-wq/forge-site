@@ -1,44 +1,45 @@
 "use client";
 
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Motion";
+import { AnimatedCounter, FadeIn, GlowDivider, Crosshair } from "@/components/Motion";
 
-const proofTiles = [
-  { text: "Starts with a focused 30–45 day pilot" },
-  { text: "Expands into 3–5 year transformation partnerships" },
-  { text: "Built for plant-level execution and executive visibility" },
-  { text: "Designed for multi-site manufacturers" },
+const stats = [
+  { value: 40, suffix: "%", label: "Downtime reduction" },
+  { value: 25, suffix: "%", label: "Scrap reduction" },
+  { value: 15, suffix: "%", label: "Energy savings" },
+  { value: 100, suffix: "+", label: "Plant deployments" },
 ];
 
 export default function Credibility() {
   return (
-    <section className="bg-bone py-20 lg:py-28">
-      <div className="max-w-wide mx-auto px-6 lg:px-12">
-        <div className="max-w-3xl mb-16">
-          <FadeIn>
-            <h2 className="font-serif text-display-sm lg:text-display text-charcoal mb-6">
-              Built for the plants where inefficiency gets expensive fast.
-            </h2>
-          </FadeIn>
-          <FadeIn delay={0.15}>
-            <p className="text-base lg:text-lg leading-relaxed text-slate">
-              Forge partners with manufacturers that know operational waste compounds across lines, shifts, and locations. We help teams move from disconnected data and isolated initiatives to a structured AI operating model that improves uptime, quality, and efficiency over time.
-            </p>
-          </FadeIn>
-        </div>
+    <section id="credibility" className="relative py-24 lg:py-32 bg-graphite noise-overlay">
+      <div className="absolute inset-0 blueprint-grid opacity-30" />
 
-        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {proofTiles.map((tile, i) => (
-            <StaggerItem key={i}>
-              <div className="bg-ivory p-6 lg:p-8 border border-stone/60 h-full">
-                <div className="w-8 h-px bg-teal mb-5" />
-                <p className="text-sm leading-relaxed text-charcoal font-medium">
-                  {tile.text}
+      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12">
+        <FadeIn>
+          <div className="flex items-center gap-3 mb-4">
+            <Crosshair />
+            <span className="text-[10px] tracking-[0.3em] uppercase text-teal/60 font-medium">Proven Outcomes</span>
+          </div>
+        </FadeIn>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {stats.map((stat, i) => (
+            <FadeIn key={stat.label} delay={i * 0.15}>
+              <div className="relative group">
+                <div className="text-[clamp(2.5rem,5vw,4rem)] font-serif text-stone leading-none mb-3 tracking-tight">
+                  <AnimatedCounter target={stat.value} suffix={stat.suffix} duration={2.5} />
+                </div>
+                <p className="text-[12px] tracking-[0.1em] uppercase text-steel/60 font-medium">
+                  {stat.label}
                 </p>
+                <div className="absolute -bottom-4 left-0 w-8 h-px bg-teal/20 group-hover:w-16 transition-all duration-500" />
               </div>
-            </StaggerItem>
+            </FadeIn>
           ))}
-        </StaggerContainer>
+        </div>
       </div>
+
+      <GlowDivider className="absolute bottom-0 left-0 right-0" />
     </section>
   );
 }
