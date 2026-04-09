@@ -1,63 +1,180 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&f[]=fragment-mono@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg: #F9F9F9;
-  --white: #FFFFFF;
-  --dark: #131313;
-  --footer: #090909;
-  --accent: #D2E9FE;
-  --accent-dark: #1A6FCF;
-  --muted: #6B6B6B;
-  --border: #E5E5E5;
+  --bone:        #F4F1EB;
+  --stone:       #EDEAE3;
+  --stone-dark:  #E2DED6;
+  --border:      #D4D0C8;
+  --charcoal:    #1C1C1A;
+  --mid:         #6B6660;
+  --light:       #9B978F;
+  --teal:        #1B5E6B;
+  --teal-dark:   #0F3A42;
+  --teal-light:  #EBF4F6;
+  --white:       #FFFFFF;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Satoshi', sans-serif;
-  background-color: var(--bg);
-  color: var(--dark);
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bone);
+  color: var(--charcoal);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
 }
 
-.marquee-track {
-  animation: marquee 28s linear infinite;
+.font-mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
 
-.marquee-track:hover {
-  animation-play-state: paused;
+/* Section label — small monospace uppercase */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--light);
+  display: block;
+  margin-bottom: 20px;
 }
 
-.card-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* ── Hover utilities (CSS only, safe for server components) ── */
+
+.forge-nav-link {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--mid);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
 }
-.card-lift:hover {
+.forge-nav-link:hover { color: var(--charcoal); }
+
+.forge-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  background: var(--teal);
+  padding: 12px 24px;
+  text-decoration: none;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.forge-btn-primary:hover { background: var(--teal-dark); }
+
+.forge-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--charcoal);
+  background: transparent;
+  padding: 11px 24px;
+  text-decoration: none;
+  border: 1px solid var(--charcoal);
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.forge-btn-outline:hover {
+  background: var(--charcoal);
+  color: var(--white);
+}
+
+.forge-btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  background: transparent;
+  padding: 11px 24px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.forge-btn-outline-light:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.08);
+}
+
+/* Service cards */
+.forge-service-card {
+  padding: 40px 36px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  transition: border-color 0.25s, transform 0.2s;
+}
+.forge-service-card:hover {
+  border-color: var(--teal);
   transform: translateY(-2px);
 }
 
-.label-mono {
-  font-family: 'Fragment Mono', 'Roboto Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #999;
-  display: block;
+/* Industry tiles */
+.forge-industry-tile {
+  background: var(--stone);
+  border: 1px solid var(--border);
+  padding: 40px 32px;
+  transition: background 0.25s, border-color 0.25s;
+  cursor: default;
+}
+.forge-industry-tile:hover {
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+}
+.forge-industry-tile:hover .tile-name {
+  color: var(--white);
+}
+.forge-industry-tile:hover .tile-desc {
+  color: rgba(255,255,255,0.65);
+}
+.forge-industry-tile:hover .tile-num {
+  color: rgba(255,255,255,0.35);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Proof cards */
+.forge-proof-card {
+  border-top: 2px solid var(--border);
+  padding: 36px 0;
+  transition: border-color 0.2s;
 }
+.forge-proof-card:hover { border-top-color: var(--teal); }
 
-.nav-overlay {
-  animation: fadeIn 0.15s ease;
+/* Footer links */
+.forge-footer-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
 }
+.forge-footer-link:hover { color: rgba(255,255,255,0.9); }
+
+/* Mobile nav overlay */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.mobile-nav { animation: fadeDown 0.18s ease; }
