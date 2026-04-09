@@ -1,70 +1,97 @@
 "use client";
 
-import Link from "next/link";
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Motion";
+import { motion } from "framer-motion";
+import { StaggerContainer, StaggerItem, FadeIn, Crosshair } from "@/components/Motion";
 
 const services = [
   {
-    title: "Predictive maintenance and reliability",
-    description:
-      "Reduce unplanned downtime and improve asset performance with AI-driven monitoring, diagnostics, and maintenance intelligence.",
+    number: "01",
+    title: "Predictive Maintenance",
+    desc: "ML models trained on your equipment data. Predict failures before they happen, schedule maintenance when it makes sense.",
+    tags: ["Vibration analysis", "Thermal modeling", "Failure prediction"],
   },
   {
-    title: "Smart factory transformation",
-    description:
-      "Turn plant data into operational leverage through systems, dashboards, and decision support that actually get used on the floor.",
+    number: "02",
+    title: "Quality Analytics",
+    desc: "Computer vision and statistical process control powered by AI. Catch defects upstream, reduce scrap downstream.",
+    tags: ["Vision inspection", "SPC automation", "Root cause"],
   },
   {
-    title: "Quality and scrap intelligence",
-    description:
-      "Identify defect patterns, process instability, and waste drivers across lines, products, and plants.",
+    number: "03",
+    title: "Energy Optimization",
+    desc: "Real-time energy modeling across production lines. Find waste, optimize schedules, cut costs without cutting output.",
+    tags: ["Load balancing", "Peak shaving", "Carbon tracking"],
   },
   {
-    title: "Multi-plant AI operating model",
-    description:
-      "Standardize how transformation gets deployed, measured, and improved across locations with leadership visibility built in.",
+    number: "04",
+    title: "Multi-Plant Visibility",
+    desc: "Unified data layer across sites. Compare performance, share learnings, standardize best practices at scale.",
+    tags: ["Cross-site analytics", "KPI dashboards", "Benchmarking"],
   },
 ];
 
 export default function Services() {
   return (
-    <section className="bg-ivory py-20 lg:py-28">
-      <div className="max-w-wide mx-auto px-6 lg:px-12">
-        <FadeIn>
-          <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-teal mb-4">
-            Services
-          </p>
-          <h2 className="font-serif text-display-sm lg:text-display text-charcoal mb-16">
-            What Forge helps manufacturers solve
-          </h2>
-        </FadeIn>
+    <section id="services" className="relative py-28 lg:py-40 bg-obsidian noise-overlay">
+      <div className="absolute inset-0 blueprint-grid opacity-20" />
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {services.map((service, i) => (
-            <StaggerItem key={i}>
-              <div className="group p-8 lg:p-10 border border-stone/60 hover:border-teal/30 transition-colors duration-300 h-full">
-                <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-steel mb-4 block">
-                  0{i + 1}
+      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="max-w-2xl mb-20">
+          <FadeIn>
+            <div className="flex items-center gap-3 mb-6">
+              <Crosshair />
+              <span className="text-[10px] tracking-[0.3em] uppercase text-teal/60 font-medium">
+                02 — Services
+              </span>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] leading-[1.1] tracking-tight text-stone mb-6">
+              Engineered for the plant floor.
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-lg text-steel leading-relaxed">
+              Each service is built around real manufacturing problems — not theoretical AI use cases.
+            </p>
+          </FadeIn>
+        </div>
+
+        <StaggerContainer className="grid md:grid-cols-2 gap-6" staggerDelay={0.12}>
+          {services.map((service) => (
+            <StaggerItem key={service.number}>
+              <motion.div
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3 }}
+                className="group relative p-8 lg:p-10 border border-white/[0.06] bg-white/[0.02] hover:border-teal/20 hover:bg-teal/[0.03] transition-all duration-500"
+              >
+                {/* Corner accents */}
+                <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-teal/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <span className="text-[11px] font-mono text-teal/40 tracking-wider mb-4 block">
+                  {service.number}
                 </span>
-                <h3 className="font-serif text-heading text-charcoal mb-4">
+                <h3 className="font-serif text-2xl text-stone mb-4 group-hover:text-white transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-slate">
-                  {service.description}
+                <p className="text-[15px] text-steel leading-relaxed mb-6">
+                  {service.desc}
                 </p>
-              </div>
+                <div className="flex flex-wrap gap-2">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] tracking-[0.1em] uppercase text-teal/40 border border-teal/10 px-2.5 py-1"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             </StaggerItem>
           ))}
         </StaggerContainer>
-
-        <FadeIn delay={0.3} className="mt-12">
-          <Link
-            href="/services"
-            className="inline-flex items-center text-[13px] font-medium tracking-wide uppercase text-teal hover:text-teal-dark transition-colors"
-          >
-            View all services →
-          </Link>
-        </FadeIn>
       </div>
     </section>
   );

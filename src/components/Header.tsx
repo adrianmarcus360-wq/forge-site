@@ -1,88 +1,134 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const navLinks = [
-  { href: "/services", label: "Services" },
-  { href: "/industries", label: "Industries" },
-  { href: "/how-it-works", label: "How Forge Works" },
-  { href: "/proof", label: "Proof" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+const navItems = [
+  { label: "Services", href: "/services" },
+  { label: "Industries", href: "/industries" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Proof", href: "/proof" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-ivory/90 backdrop-blur-md border-b border-stone/50">
-      <div className="max-w-wide mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-[72px]">
+    <>
+      <motion.header
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-obsidian/80 backdrop-blur-xl border-b border-white/5"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 h-[72px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="font-serif text-2xl font-semibold tracking-tight text-charcoal">
+          <Link href="/" className="relative group">
+            <span className="text-[15px] font-semibold tracking-[0.25em] uppercase text-stone transition-colors duration-300 group-hover:text-white">
               Forge
             </span>
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-teal transition-all duration-300 group-hover:w-full" />
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navItems.map((item) => (
               <Link
-                key={link.href}
-                href={link.href}
-                className="text-[13px] font-medium tracking-wide uppercase text-slate hover:text-charcoal transition-colors duration-200"
+                key={item.href}
+                href={item.href}
+                className="relative text-[11px] font-medium tracking-[0.15em] uppercase text-steel hover:text-stone transition-colors duration-300 group"
               >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* CTA + Mobile Toggle */}
-          <div className="flex items-center gap-4">
-            <Link
-              href="/contact"
-              className="hidden sm:inline-flex items-center px-5 py-2.5 bg-charcoal text-ivory text-[13px] font-medium tracking-wide uppercase hover:bg-graphite transition-colors duration-200"
-            >
-              Book a strategy call
-            </Link>
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 text-charcoal"
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Nav */}
-      {mobileOpen && (
-        <div className="lg:hidden bg-ivory border-t border-stone/50">
-          <nav className="max-w-wide mx-auto px-6 py-8 flex flex-col gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium text-charcoal hover:text-teal transition-colors"
-              >
-                {link.label}
+                {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-teal/50 transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
             <Link
               href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="inline-flex items-center justify-center px-6 py-3 bg-charcoal text-ivory text-sm font-medium tracking-wide uppercase mt-4"
+              className="ml-4 px-6 py-2.5 text-[11px] font-medium tracking-[0.15em] uppercase border border-teal/40 text-teal hover:bg-teal hover:text-white transition-all duration-300"
             >
-              Book a strategy call
+              Book a Call
             </Link>
           </nav>
+
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="lg:hidden relative w-6 h-5 flex flex-col justify-between"
+            aria-label="Menu"
+          >
+            <motion.span
+              animate={mobileOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+              className="w-full h-px bg-stone origin-center"
+            />
+            <motion.span
+              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+              className="w-full h-px bg-stone"
+            />
+            <motion.span
+              animate={mobileOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+              className="w-full h-px bg-stone origin-center"
+            />
+          </button>
         </div>
-      )}
-    </header>
+      </motion.header>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-obsidian/95 backdrop-blur-xl flex items-center justify-center lg:hidden"
+          >
+            <nav className="flex flex-col items-center gap-8">
+              {navItems.map((item, i) => (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08 }}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="text-2xl font-serif text-stone hover:text-teal transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navItems.length * 0.08 }}
+              >
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="mt-4 px-8 py-3 border border-teal text-teal text-sm tracking-wider uppercase hover:bg-teal hover:text-white transition-all"
+                >
+                  Book a Call
+                </Link>
+              </motion.div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

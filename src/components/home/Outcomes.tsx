@@ -1,47 +1,64 @@
 "use client";
 
-import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Motion";
+import { motion } from "framer-motion";
+import { StaggerContainer, StaggerItem, FadeIn, AnimatedCounter, Crosshair } from "@/components/Motion";
 
 const outcomes = [
-  "More predictable uptime",
-  "Lower scrap and rework",
-  "Better energy economics",
-  "Faster visibility into plant issues",
-  "Stronger cross-site operating discipline",
-  "A scalable transformation model, not isolated experiments",
+  { metric: 40, suffix: "%", label: "Downtime reduction", desc: "Average across predictive maintenance deployments" },
+  { metric: 25, suffix: "%", label: "Scrap reduction", desc: "Through AI-powered quality inspection" },
+  { metric: 15, suffix: "%", label: "Energy savings", desc: "Optimized scheduling and load balancing" },
+  { metric: 3, suffix: "x", label: "ROI in year one", desc: "Typical return on transformation investment" },
+  { metric: 90, suffix: "%", label: "Operator adoption", desc: "Tools built for the floor, not the boardroom" },
+  { metric: 8, suffix: "wk", label: "Time to first value", desc: "From kickoff to measurable impact" },
 ];
 
 export default function Outcomes() {
   return (
-    <section className="bg-ivory py-20 lg:py-28">
-      <div className="max-w-wide mx-auto px-6 lg:px-12">
-        <FadeIn>
-          <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-teal mb-4">
-            Outcomes
-          </p>
-          <h2 className="font-serif text-display-sm lg:text-display text-charcoal mb-16 max-w-2xl">
-            What the best programs create
-          </h2>
-        </FadeIn>
+    <section id="outcomes" className="relative py-28 lg:py-40 bg-obsidian noise-overlay">
+      <div className="absolute inset-0 blueprint-grid opacity-15" />
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {outcomes.map((outcome, i) => (
-            <StaggerItem key={i}>
-              <div className="flex items-start gap-4 p-6 bg-bone border border-stone/40">
-                <div className="w-2 h-2 bg-teal rounded-full mt-1.5 shrink-0" />
-                <p className="text-base font-medium text-charcoal leading-snug">
-                  {outcome}
+      {/* Large background number */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 text-[25vw] font-serif text-white/[0.015] leading-none select-none pointer-events-none">
+        ROI
+      </div>
+
+      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="max-w-2xl mb-20">
+          <FadeIn>
+            <div className="flex items-center gap-3 mb-6">
+              <Crosshair />
+              <span className="text-[10px] tracking-[0.3em] uppercase text-teal/60 font-medium">
+                04 — Outcomes
+              </span>
+            </div>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] leading-[1.1] tracking-tight text-stone mb-6">
+              Numbers that survive the boardroom.
+            </h2>
+          </FadeIn>
+        </div>
+
+        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.04]" staggerDelay={0.08}>
+          {outcomes.map((o) => (
+            <StaggerItem key={o.label}>
+              <motion.div
+                whileHover={{ backgroundColor: "rgba(26,107,106,0.04)" }}
+                className="p-8 lg:p-10 bg-obsidian transition-colors duration-500 group"
+              >
+                <div className="text-[clamp(2.5rem,4vw,3.5rem)] font-serif text-stone leading-none mb-2 tracking-tight">
+                  <AnimatedCounter target={o.metric} suffix={o.suffix} duration={2} />
+                </div>
+                <h4 className="text-[13px] tracking-[0.1em] uppercase text-teal/60 font-medium mb-3">
+                  {o.label}
+                </h4>
+                <p className="text-[14px] text-steel/60 leading-relaxed">
+                  {o.desc}
                 </p>
-              </div>
+              </motion.div>
             </StaggerItem>
           ))}
         </StaggerContainer>
-
-        <FadeIn delay={0.3} className="mt-12">
-          <p className="text-sm text-slate max-w-xl">
-            Forge is designed for manufacturers that want a durable operating advantage, not another disconnected pilot.
-          </p>
-        </FadeIn>
       </div>
     </section>
   );
