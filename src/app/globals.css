@@ -1,160 +1,185 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=JetBrains+Mono:wght@400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bone:        #F4F1EB;
-  --stone:       #EDEAE3;
-  --stone-dark:  #E2DED6;
-  --border:      #D4D0C8;
-  --charcoal:    #1C1C1A;
-  --mid:         #6B6660;
-  --light:       #9B978F;
-  --teal:        #1B5E6B;
-  --teal-dark:   #0F3A42;
-  --teal-light:  #EBF4F6;
+  --void:        #080808;
+  --ink:         #1D1D1F;
+  --smoke:       #F5F5F7;
   --white:       #FFFFFF;
+  --gray:        #6E6E73;
+  --light-gray:  #AEAEB2;
+  --teal:        #0B8C7E;
+  --teal-dark:   #065C53;
+  --teal-bright: #00C4A7;
+
+  /* Legacy aliases (inner pages) */
+  --bone:        #F5F5F7;
+  --stone:       #EBEBEB;
+  --charcoal:    #1D1D1F;
+  --mid:         #6E6E73;
+  --light:       #AEAEB2;
+  --border:      #D8D8D8;
+  --teal-light:  #E6F7F5;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bone);
-  color: var(--charcoal);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--void);
+  color: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .font-display {
-  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .font-mono {
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-family: 'JetBrains Mono', monospace;
 }
 
-/* Section label — small monospace uppercase */
+/* Section label */
 .section-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--light);
+  color: var(--teal);
   display: block;
   margin-bottom: 20px;
 }
 
-/* ── Hover utilities (CSS only, safe for server components) ── */
-
-.forge-nav-link {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 400;
-  font-size: 13px;
-  color: var(--mid);
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  transition: color 0.2s;
-}
-.forge-nav-link:hover { color: var(--charcoal); }
+/* ─── Buttons ─────────────────────────────────────────────── */
 
 .forge-btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: 'DM Sans', sans-serif;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: var(--white);
-  background: var(--teal);
-  padding: 12px 24px;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  color: var(--void);
+  background: var(--white);
+  padding: 14px 28px;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.15s;
   border: none;
   cursor: pointer;
 }
-.forge-btn-primary:hover { background: var(--teal-dark); }
+.forge-btn-primary:hover {
+  background: var(--smoke);
+  transform: translateY(-1px);
+}
 
+.forge-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.65);
+  background: transparent;
+  padding: 13px 28px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: border-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.forge-btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: var(--white);
+}
+
+/* Legacy btn classes (inner pages) */
 .forge-btn-outline {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: 'DM Sans', sans-serif;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  letter-spacing: 0.04em;
-  color: var(--charcoal);
+  letter-spacing: 0.02em;
+  color: var(--ink);
   background: transparent;
   padding: 11px 24px;
   text-decoration: none;
-  border: 1px solid var(--charcoal);
+  border: 1px solid var(--ink);
   transition: background 0.2s, color 0.2s;
   cursor: pointer;
 }
-.forge-btn-outline:hover {
-  background: var(--charcoal);
-  color: var(--white);
-}
+.forge-btn-outline:hover { background: var(--ink); color: var(--white); }
 
 .forge-btn-outline-light {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: 'DM Sans', sans-serif;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   color: var(--white);
   background: transparent;
   padding: 11px 24px;
   text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   transition: border-color 0.2s, background 0.2s;
   cursor: pointer;
 }
 .forge-btn-outline-light:hover {
   border-color: var(--white);
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.07);
 }
 
-/* Service cards */
+/* ─── Nav links ───────────────────────────────────────────── */
+.forge-nav-link {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  letter-spacing: 0.005em;
+  transition: color 0.2s;
+}
+.forge-nav-link:hover { color: var(--white); }
+
+/* ─── Service grid cells ──────────────────────────────────── */
 .forge-service-card {
-  padding: 40px 36px;
-  border: 1px solid var(--border);
-  background: var(--white);
-  transition: border-color 0.25s, transform 0.2s;
+  padding: 52px 48px;
+  background: var(--ink);
+  transition: background 0.25s;
 }
-.forge-service-card:hover {
-  border-color: var(--teal);
-  transform: translateY(-2px);
-}
+.forge-service-card:hover { background: #252527; }
 
-/* Industry tiles */
+/* ─── Industry grid cells ─────────────────────────────────── */
+.forge-industry-card {
+  background: var(--white);
+  padding: 52px 52px;
+  transition: background 0.2s;
+}
+.forge-industry-card:hover { background: var(--smoke); }
+
+/* ─── Industry tiles ──────────────────────────────────────── */
 .forge-industry-tile {
-  background: var(--stone);
+  background: var(--smoke);
   border: 1px solid var(--border);
-  padding: 40px 32px;
+  padding: 40px 36px;
   transition: background 0.25s, border-color 0.25s;
   cursor: default;
 }
-.forge-industry-tile:hover {
-  background: var(--teal-dark);
-  border-color: var(--teal-dark);
-}
-.forge-industry-tile:hover .tile-name {
-  color: var(--white);
-}
-.forge-industry-tile:hover .tile-desc {
-  color: rgba(255,255,255,0.65);
-}
-.forge-industry-tile:hover .tile-num {
-  color: rgba(255,255,255,0.35);
-}
+.forge-industry-tile:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+.forge-industry-tile:hover .tile-name { color: var(--white); }
+.forge-industry-tile:hover .tile-desc { color: rgba(255,255,255,0.6); }
+.forge-industry-tile:hover .tile-num  { color: rgba(255,255,255,0.3); }
 
-/* Proof cards */
+/* ─── Proof cards ─────────────────────────────────────────── */
 .forge-proof-card {
   border-top: 2px solid var(--border);
   padding: 36px 0;
@@ -162,17 +187,17 @@ body {
 }
 .forge-proof-card:hover { border-top-color: var(--teal); }
 
-/* Footer links */
+/* ─── Footer ──────────────────────────────────────────────── */
 .forge-footer-link {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255, 255, 255, 0.38);
   text-decoration: none;
   transition: color 0.2s;
 }
-.forge-footer-link:hover { color: rgba(255,255,255,0.9); }
+.forge-footer-link:hover { color: rgba(255, 255, 255, 0.85); }
 
-/* Mobile nav overlay */
+/* ─── Mobile nav ──────────────────────────────────────────── */
 @keyframes fadeDown {
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }

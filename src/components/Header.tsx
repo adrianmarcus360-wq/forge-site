@@ -6,7 +6,6 @@ const NAV = [
   { label: "Services",     href: "/services" },
   { label: "How It Works", href: "/how-it-works" },
   { label: "Industries",   href: "/industries" },
-  { label: "Proof",        href: "/proof" },
   { label: "About",        href: "/about" },
 ];
 
@@ -23,98 +22,126 @@ export default function Header() {
   return (
     <header style={{
       position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
+      top: 0, left: 0, right: 0,
       zIndex: 100,
-      background: scrolled ? "rgba(244,241,235,0.95)" : "rgba(244,241,235,0)",
-      backdropFilter: scrolled ? "blur(16px)" : "none",
-      borderBottom: scrolled ? "1px solid #D4D0C8" : "1px solid transparent",
-      transition: "all 0.35s ease",
+      background: scrolled ? "rgba(8,8,8,0.88)" : "transparent",
+      backdropFilter: scrolled ? "blur(20px)" : "none",
+      WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+      borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
+      transition: "background 0.35s, backdrop-filter 0.35s, border-color 0.35s",
     }}>
       <div style={{
-        maxWidth: "1320px",
+        maxWidth: "1240px",
         margin: "0 auto",
-        padding: "0 48px",
+        padding: "0 40px",
         height: "72px",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        gap: "40px",
       }}>
 
         {/* Wordmark */}
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <rect x="0" y="0" width="22" height="2.5" fill="#1C1C1A"/>
-            <rect x="0" y="0" width="2.5" height="22" fill="#1C1C1A"/>
-            <rect x="0" y="9.75" width="13" height="2.5" fill="#1B5E6B"/>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px", marginRight: "auto" }}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <rect x="0" y="0" width="20" height="2.5" fill="white"/>
+            <rect x="0" y="0" width="2.5" height="20" fill="white"/>
+            <rect x="0" y="8.75" width="12" height="2.5" fill="rgba(11,140,126,0.9)"/>
           </svg>
           <span style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontWeight: 400,
+            fontFamily: "'Space Grotesk', sans-serif",
+            fontWeight: 700,
             fontSize: "13px",
-            letterSpacing: "0.22em",
-            color: "#1C1C1A",
+            letterSpacing: "0.18em",
+            color: "#FFFFFF",
             textTransform: "uppercase",
           }}>Forge</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex" style={{ alignItems: "center", gap: "36px" }}>
+        <nav className="hidden md:flex" style={{ alignItems: "center", gap: "32px" }}>
           {NAV.map(l => (
             <Link key={l.href} href={l.href} className="forge-nav-link">{l.label}</Link>
           ))}
         </nav>
 
         {/* Desktop CTA */}
-        <div className="hidden md:flex" style={{ alignItems: "center", gap: "14px" }}>
-          <Link href="/contact" className="forge-btn-primary" style={{ fontSize: "12px" }}>
-            Book a Strategy Call
-          </Link>
-        </div>
+        <Link
+          href="/contact"
+          className="hidden md:inline-flex"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 500,
+            fontSize: "13px",
+            letterSpacing: "0.01em",
+            color: "#080808",
+            background: "#FFFFFF",
+            padding: "9px 18px",
+            textDecoration: "none",
+            transition: "background 0.2s",
+            flexShrink: 0,
+          }}
+          onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#F0F0F0"}
+          onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#FFFFFF"}
+        >
+          Start a pilot
+        </Link>
 
         {/* Mobile hamburger */}
         <button
           className="md:hidden"
           onClick={() => setOpen(!open)}
-          style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", display: "flex", flexDirection: "column", gap: "5px" }}
+          style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", display: "flex", flexDirection: "column", gap: "5px", marginLeft: "auto" }}
           aria-label="Menu"
         >
-          <span style={{ display: "block", width: "20px", height: "1.5px", background: "#1C1C1A", transition: "all 0.2s", transform: open ? "rotate(45deg) translateY(6.5px)" : "none" }}/>
-          <span style={{ display: "block", width: "20px", height: "1.5px", background: "#1C1C1A", opacity: open ? 0 : 1 }}/>
-          <span style={{ display: "block", width: "20px", height: "1.5px", background: "#1C1C1A", transition: "all 0.2s", transform: open ? "rotate(-45deg) translateY(-6.5px)" : "none" }}/>
+          <span style={{ display: "block", width: "22px", height: "1.5px", background: "white", transition: "all 0.22s", transform: open ? "rotate(45deg) translateY(6.5px)" : "none" }}/>
+          <span style={{ display: "block", width: "22px", height: "1.5px", background: "white", opacity: open ? 0 : 1, transition: "opacity 0.15s" }}/>
+          <span style={{ display: "block", width: "22px", height: "1.5px", background: "white", transition: "all 0.22s", transform: open ? "rotate(-45deg) translateY(-6.5px)" : "none" }}/>
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden mobile-nav" style={{
-          background: "#F4F1EB",
-          borderTop: "1px solid #D4D0C8",
-          padding: "28px 48px 36px",
+          background: "rgba(8,8,8,0.96)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          borderTop: "1px solid rgba(255,255,255,0.07)",
+          padding: "24px 40px 36px",
         }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
             {NAV.map(l => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
                 style={{
-                  fontFamily: "'DM Sans', sans-serif",
+                  fontFamily: "'Inter', sans-serif",
                   fontWeight: 400,
-                  fontSize: "15px",
-                  color: "#1C1C1A",
+                  fontSize: "16px",
+                  color: "rgba(255,255,255,0.7)",
                   textDecoration: "none",
-                  letterSpacing: "0.02em",
+                  padding: "14px 0",
+                  borderBottom: "1px solid rgba(255,255,255,0.06)",
+                  transition: "color 0.2s",
                 }}
               >{l.label}</Link>
             ))}
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="forge-btn-primary"
-              style={{ alignSelf: "flex-start", marginTop: "8px" }}
-            >Book a Strategy Call</Link>
+              style={{
+                display: "inline-flex",
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 500,
+                fontSize: "13px",
+                color: "#080808",
+                background: "#FFFFFF",
+                padding: "11px 20px",
+                textDecoration: "none",
+                alignSelf: "flex-start",
+                marginTop: "20px",
+              }}
+            >Start a pilot</Link>
           </div>
         </div>
       )}
