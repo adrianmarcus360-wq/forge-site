@@ -33,7 +33,7 @@ export default function Footer() {
             <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", display: "block", marginBottom: "20px" }}>
               Get Started
             </span>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", lineHeight: 1.08, letterSpacing: "-0.02em", color: "#FFFFFF" }}>
+            <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", lineHeight: 1.08, letterSpacing: "-0.02em", color: "#FFFFFF" }}>
               If your plants already know they need help, Forge is built for that moment.
             </h2>
           </div>
@@ -60,7 +60,7 @@ export default function Footer() {
               </svg>
               <span style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 400, fontSize: "13px", letterSpacing: "0.22em", textTransform: "uppercase", color: "white" }}>Forge</span>
             </div>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.4)", lineHeight: 1.7, maxWidth: "280px" }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.4)", lineHeight: 1.7, maxWidth: "280px" }}>
               A premium AI transformation firm for manufacturers. Built around outcomes, not experiments.
             </p>
           </div>
