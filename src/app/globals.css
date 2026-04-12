@@ -364,3 +364,159 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 .mobile-nav { animation: fadeDown 0.18s ease; }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE — max-width: 767px
+   !important needed to override React inline styles
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+
+  /* ─── Hero ──────────────────────────────────────────────────── */
+  .forge-hero-content {
+    padding: 120px 20px 64px !important;
+  }
+
+  /* ─── Stats bar ─────────────────────────────────────────────── */
+  .forge-stats-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 20px !important;
+  }
+  .forge-stat-item {
+    padding: 36px 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .forge-stat-item:last-child {
+    border-bottom: none;
+  }
+
+  /* ─── Section spacing ───────────────────────────────────────── */
+  .forge-section-pad {
+    padding: 64px 20px !important;
+  }
+  .forge-section-header {
+    padding: 64px 20px 0 !important;
+  }
+  .forge-section-content {
+    padding: 0 20px !important;
+  }
+
+  /* ─── 3-col grids → single column ──────────────────────────── */
+  .forge-steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .forge-step-item {
+    padding: 40px 24px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .forge-step-item:last-child {
+    border-bottom: none;
+  }
+
+  /* ─── Outcomes 2-col → 1-col ────────────────────────────────── */
+  .forge-outcomes-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .forge-outcome-item {
+    padding: 28px 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    border-left: none !important;
+  }
+
+  /* ─── Industries 2-col → 1-col ──────────────────────────────── */
+  .forge-industries-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ─── Deliverable rows ──────────────────────────────────────── */
+  .deliverable-row {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .deliverable-row .d-img {
+    min-height: 220px !important;
+    order: 0 !important;
+  }
+  .deliverable-row.rev .d-img {
+    order: 0 !important;
+  }
+  .deliverable-row .d-text {
+    padding: 40px 20px !important;
+    border-right: none !important;
+  }
+  .deliverable-row.rev .d-text {
+    border-left: none !important;
+    order: 1 !important;
+  }
+
+  /* ─── Final CTA ─────────────────────────────────────────────── */
+  .forge-cta-section {
+    padding: 80px 20px !important;
+  }
+  .forge-cta-inner {
+    padding: 0 4px;
+  }
+
+  /* ─── Footer ────────────────────────────────────────────────── */
+  .forge-footer-cta {
+    padding: 56px 20px !important;
+  }
+  .forge-footer-nav {
+    padding: 48px 20px 40px !important;
+  }
+  .forge-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 36px !important;
+  }
+  .forge-footer-grid > div:first-child {
+    grid-column: span 2;
+  }
+}
+
+/* ─── Tablet polish (768–1023px) ─────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .forge-steps-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .forge-step-item {
+    padding: 40px 40px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .forge-step-item:last-child {
+    border-bottom: none;
+  }
+  .forge-hero-content {
+    padding: 140px 32px 80px !important;
+  }
+  .forge-section-pad {
+    padding: 80px 32px !important;
+  }
+  .forge-section-header {
+    padding: 80px 32px 0 !important;
+  }
+  .forge-section-content {
+    padding: 0 32px !important;
+  }
+  .forge-stats-grid {
+    padding: 0 32px !important;
+  }
+  .forge-footer-cta {
+    padding: 64px 32px !important;
+  }
+  .forge-footer-nav {
+    padding: 56px 32px 48px !important;
+  }
+  .forge-footer-grid {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 40px !important;
+  }
+  .forge-footer-grid > div:first-child {
+    grid-column: span 3;
+  }
+}

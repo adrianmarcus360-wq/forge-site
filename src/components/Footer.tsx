@@ -27,7 +27,7 @@ export default function Footer() {
   return (
     <footer style={{ background: "var(--dark, #0a0a0c)" }}>
       {/* Final CTA band */}
-      <div style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "80px 48px" }}>
+      <div className="forge-footer-cta" style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "80px 48px" }}>
         <div style={{ maxWidth: "1320px", margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: "40px" }}>
           <div style={{ maxWidth: "600px" }}>
             <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", display: "block", marginBottom: "20px" }}>
@@ -47,8 +47,8 @@ export default function Footer() {
       </div>
 
       {/* Footer nav */}
-      <div style={{ padding: "60px 48px 48px" }}>
-        <div style={{ maxWidth: "1320px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "48px", marginBottom: "48px" }}>
+      <div className="forge-footer-nav" style={{ padding: "60px 48px 48px" }}>
+        <div className="forge-footer-grid" style={{ maxWidth: "1320px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "48px", marginBottom: "48px" }}>
           {/* Brand */}
           <div style={{ gridColumn: "span 2" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>

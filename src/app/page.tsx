@@ -156,6 +156,7 @@ export default function Home() {
 
         {/* Hero content */}
         <div
+          className="forge-hero-content"
           style={{
             position: "relative",
             zIndex: 3,
@@ -259,6 +260,7 @@ export default function Home() {
         }}
       >
         <div
+          className="forge-stats-grid"
           style={{
             maxWidth: "1240px",
             margin: "0 auto",
@@ -286,6 +288,7 @@ export default function Home() {
           ].map((s, i) => (
             <div
               key={i}
+              className="forge-stat-item"
               style={{
                 padding: "72px 0",
                 paddingRight: i < 2 ? "56px" : "0",
@@ -337,7 +340,7 @@ export default function Home() {
 
       {/* ══ 3. DELIVERABLES ════════════════════════════════════════ */}
       <section style={{ background: "var(--dark)", borderBottom: "1px solid var(--border-dark)" }}>
-        <div style={{ maxWidth: "1240px", margin: "0 auto", padding: "96px 40px 0" }}>
+        <div className="forge-section-header" style={{ maxWidth: "1240px", margin: "0 auto", padding: "96px 40px 0" }}>
           <span className="section-label-orange">What we deliver</span>
           <h2
             style={{
@@ -356,7 +359,7 @@ export default function Home() {
         </div>
 
         {/* Deliverable rows */}
-        <div style={{ maxWidth: "1240px", margin: "0 auto", padding: "0 40px" }}>
+        <div className="forge-section-content" style={{ maxWidth: "1240px", margin: "0 auto", padding: "0 40px" }}>
           {DELIVERABLES.map((d) => (
             <div
               key={d.num}
@@ -436,7 +439,7 @@ export default function Home() {
 
       {/* ══ 5. HOW IT WORKS ════════════════════════════════════════ */}
       <section
-        className="grid-bg"
+        className="grid-bg forge-section-pad"
         style={{
           background: "var(--card-dark)",
           padding: "100px 40px",
@@ -447,10 +450,11 @@ export default function Home() {
         <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
           <span className="section-label-orange">Three stages, one engagement</span>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "var(--border-dark)" }}>
+          <div className="forge-steps-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "var(--border-dark)" }}>
             {STEPS.map((s) => (
               <div
                 key={s.num}
+                className="forge-step-item"
                 style={{
                   padding: "56px 48px",
                   background: "var(--card-dark)",
@@ -524,6 +528,7 @@ export default function Home() {
 
       {/* ══ 6. OUTCOMES ════════════════════════════════════════════ */}
       <section
+        className="forge-section-pad"
         style={{
           background: "var(--dark)",
           padding: "100px 40px",
@@ -548,6 +553,7 @@ export default function Home() {
           </h2>
 
           <div
+            className="forge-outcomes-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
@@ -557,6 +563,7 @@ export default function Home() {
             {OUTCOMES.map((o, i) => (
               <div
                 key={i}
+                className="forge-outcome-item"
                 style={{
                   padding: "36px 0",
                   paddingRight: i % 2 === 0 ? "64px" : "0",
@@ -598,6 +605,7 @@ export default function Home() {
 
       {/* ══ 7. INDUSTRIES ══════════════════════════════════════════ */}
       <section
+        className="forge-section-pad"
         style={{
           background: "var(--dark)",
           padding: "100px 40px",
@@ -622,6 +630,7 @@ export default function Home() {
           </h2>
 
           <div
+            className="forge-industries-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
@@ -667,7 +676,7 @@ export default function Home() {
 
       {/* ══ 8. ENGAGEMENT TIERS ════════════════════════════════════ */}
       <section
-        className="grid-bg"
+        className="grid-bg forge-section-pad"
         style={{
           background: "var(--card-dark)",
           padding: "100px 40px",
@@ -692,6 +701,7 @@ export default function Home() {
           </h2>
 
           <div
+            className="forge-steps-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, 1fr)",
@@ -718,6 +728,7 @@ export default function Home() {
             ].map((p, i) => (
               <div
                 key={i}
+                className="forge-step-item"
                 style={{
                   padding: "52px 44px",
                   background: "var(--card-dark)",
@@ -770,6 +781,7 @@ export default function Home() {
 
       {/* ══ 9. FINAL CTA ═══════════════════════════════════════════ */}
       <section
+        className="forge-cta-section"
         style={{
           position: "relative",
           background: "var(--dark)",
@@ -812,7 +824,7 @@ export default function Home() {
           style={{ position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none" }}
         />
 
-        <div style={{ position: "relative", zIndex: 3, maxWidth: "780px", margin: "0 auto" }}>
+        <div className="forge-cta-inner" style={{ position: "relative", zIndex: 3, maxWidth: "780px", margin: "0 auto" }}>
           <span className="section-label-orange" style={{ justifyContent: "center" }}>
             Ready to start
           </span>
