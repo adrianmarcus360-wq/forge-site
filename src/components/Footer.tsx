@@ -25,7 +25,7 @@ const COLS = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#0F3A42" }}>
+    <footer style={{ background: "var(--dark, #0a0a0c)" }}>
       {/* Final CTA band */}
       <div style={{ borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "80px 48px" }}>
         <div style={{ maxWidth: "1320px", margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: "40px" }}>
@@ -34,15 +34,14 @@ export default function Footer() {
               Get Started
             </span>
             <h2 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600, fontSize: "clamp(32px, 4vw, 52px)", lineHeight: 1.08, letterSpacing: "-0.02em", color: "#FFFFFF" }}>
-              If your plants already know they need help, Forge is built for that moment.
+              The first step is a conversation. Not a pitch.
             </h2>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", flexShrink: 0 }}>
-            <Link href="/contact" className="forge-btn-primary" style={{ background: "#FFFFFF", color: "#0F3A42" }}
-              onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#EBF4F6"}
-              onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#FFFFFF"}
-            >Book a Strategy Call</Link>
-            <Link href="/contact" className="forge-btn-outline-light">Discuss a Pilot</Link>
+            <Link href="/contact" className="forge-btn-primary" style={{ background: "var(--orange, #ff6b00)", color: "#ffffff" }}
+              onMouseEnter={e => (e.currentTarget as HTMLElement).style.opacity = "0.9"}
+              onMouseLeave={e => (e.currentTarget as HTMLElement).style.opacity = "1"}
+            >Book an alignment session</Link>
           </div>
         </div>
       </div>
@@ -61,7 +60,7 @@ export default function Footer() {
               <span style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 400, fontSize: "13px", letterSpacing: "0.22em", textTransform: "uppercase", color: "white" }}>Forge</span>
             </div>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.4)", lineHeight: 1.7, maxWidth: "280px" }}>
-              A premium AI transformation firm for manufacturers. Built around outcomes, not experiments.
+              An AI execution firm. We find where AI moves your operation — then build the agents and operators to run it.
             </p>
           </div>
 

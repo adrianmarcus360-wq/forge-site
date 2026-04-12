@@ -125,20 +125,19 @@ export default function Home() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            mixBlendMode: "luminosity",
-            opacity: 0.45,
+            opacity: 0.65,
             zIndex: 0,
           }}
         >
           <source src="/media/hero.mp4" type="video/mp4" />
         </video>
 
-        {/* Gradient overlay — darken bottom for text */}
+        {/* Gradient overlay — keep movement visible, darken for text */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(to bottom, rgba(10,10,12,0.2) 0%, rgba(10,10,12,0.45) 40%, rgba(10,10,12,0.88) 85%, var(--dark) 100%)",
+            background: "linear-gradient(to bottom, rgba(10,10,12,0.5) 0%, rgba(10,10,12,0.38) 30%, rgba(10,10,12,0.72) 65%, rgba(10,10,12,0.96) 90%, var(--dark) 100%)",
             zIndex: 1,
           }}
         />
@@ -432,96 +431,6 @@ export default function Home() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ══ 4. PROCESS VIDEO BREAK ════════════════════════════════ */}
-      <section
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "65vh",
-          minHeight: "400px",
-          overflow: "hidden",
-          background: "var(--dark)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {/* Background video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            mixBlendMode: "luminosity",
-            opacity: 0.55,
-            zIndex: 0,
-          }}
-        >
-          <source src="/media/process.mp4" type="video/mp4" />
-        </video>
-
-        {/* Dark overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(10,10,12,0.62)",
-            zIndex: 1,
-          }}
-        />
-
-        {/* Grid texture */}
-        <div
-          className="grid-bg"
-          style={{ position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none" }}
-        />
-
-        {/* Text */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 3,
-            textAlign: "center",
-            padding: "0 40px",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: "9px",
-              letterSpacing: "0.25em",
-              textTransform: "uppercase",
-              color: "var(--orange)",
-              display: "block",
-              marginBottom: "24px",
-            }}
-          >
-            The Forge model
-          </span>
-          <h2
-            style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(36px, 6vw, 86px)",
-              letterSpacing: "-0.03em",
-              color: "var(--text-primary)",
-              lineHeight: 0.97,
-              marginBottom: "0",
-            }}
-          >
-            Align.{" "}
-            <span style={{ color: "rgba(255,255,255,0.4)" }}>Build.</span>{" "}
-            <span style={{ color: "rgba(255,255,255,0.2)" }}>Operate.</span>
-          </h2>
         </div>
       </section>
 
