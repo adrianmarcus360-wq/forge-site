@@ -4,73 +4,60 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Services — Forge",
-  description: "Predictive maintenance, smart factory transformation, quality analytics, and multi-plant AI operating models.",
+  description: "Alignment sessions, custom AI agents, operations dashboards, and embedded operators for manufacturing.",
 };
 
 const services = [
   {
-    id: "predictive-maintenance",
-    title: "Predictive maintenance and reliability",
+    id: "alignment-session",
+    title: "Alignment session",
     description:
-      "Reduce unplanned downtime and improve asset performance with AI-driven monitoring, diagnostics, and maintenance intelligence.",
+      "The starting point for every Forge engagement. We bring your leadership together — across departments, across levels — to surface where AI can move the needle, then rank every opportunity by time and cost to value.",
     details: [
-      "Condition-based monitoring and early fault detection",
-      "Asset health scoring and remaining useful life estimation",
-      "Maintenance scheduling optimization",
-      "Integration with existing CMMS and historian systems",
-      "Reliability-centered maintenance program design",
+      "Structured discovery with leaders across operations, IT, finance, and the executive team",
+      "Surfaces AI opportunities your team already knows exist but hasn't had a framework to act on",
+      "Prioritization by time to value and cost to value — not by technical complexity",
+      "Delivers a ranked action list your team owns and understands",
+      "Creates the shared language needed to build the right things in the right order",
     ],
   },
   {
-    id: "smart-factory",
-    title: "Smart factory and Industry 4.0 transformation",
+    id: "custom-ai-agents",
+    title: "Custom AI agents",
     description:
-      "Turn plant data into operational leverage through systems, dashboards, and decision support that actually get used on the floor.",
+      "Built around exactly what came out of your alignment session. Not templates, not off-the-shelf tools — agents designed for the specific workflows, data, and decisions your operation relies on.",
     details: [
-      "OEE improvement and real-time production visibility",
-      "Operator decision support and alerting systems",
-      "Data infrastructure and integration architecture",
-      "Digital twin and simulation capabilities",
-      "Change management and operator adoption programs",
+      "Internal knowledge agents trained on your data, answering questions across every level of the company",
+      "Automated briefing agents for executives, plant managers, and team leads",
+      "Competitor tracking and market intelligence agents",
+      "Scheduling, routing, and operational decision support agents",
+      "AI receptionists and intake agents for internal and external workflows",
     ],
   },
   {
-    id: "quality-scrap",
-    title: "Quality and scrap intelligence",
+    id: "operations-dashboards",
+    title: "Operations dashboards",
     description:
-      "Identify defect patterns, process instability, and waste drivers across lines, products, and plants.",
+      "Every agent we build comes with visibility. Dashboards configured for whoever needs to see what — plant managers, team leads, or the executive suite — with multiple access levels and multi-site support built in.",
     details: [
-      "Root cause analysis and defect pattern recognition",
-      "Statistical process control with AI augmentation",
-      "Scrap reduction and yield optimization",
-      "Cross-line and cross-plant quality benchmarking",
-      "Supplier quality correlation and incoming inspection intelligence",
+      "Role-based dashboards so each level of leadership sees what they need",
+      "Multi-site and multi-location visibility from a single interface",
+      "Real-time output monitoring for every agent in your system",
+      "Alert and exception tracking to surface what needs attention",
+      "Custom metrics built around the outcomes your alignment session identified",
     ],
   },
   {
-    id: "multi-plant",
-    title: "Multi-plant AI operating model",
+    id: "embedded-operators",
+    title: "Embedded operators",
     description:
-      "Standardize how transformation gets deployed, measured, and improved across locations with leadership visibility built in.",
+      "Every system we build is run by trained people. We hire and place the operators who manage your agents day-to-day — two humans in the loop at minimum — so the technology works because someone is accountable for it.",
     details: [
-      "Enterprise AI governance and operating model design",
-      "Cross-site performance benchmarking and best-practice transfer",
-      "Executive dashboards and transformation scorecards",
-      "Standardized deployment playbooks for new sites",
-      "Organizational readiness and capability building",
-    ],
-  },
-  {
-    id: "embedded-specialists",
-    title: "Embedded specialists and long-term support",
-    description:
-      "Access the exact mix of plant experience, data capability, and execution maturity required — without the impossible hiring challenge.",
-    details: [
-      "Embedded data scientists with manufacturing domain expertise",
-      "Integration engineers for OT/IT convergence",
-      "Program managers for multi-workstream coordination",
-      "Ongoing model monitoring, tuning, and improvement",
-      "Knowledge transfer and internal capability development",
+      "Operator hiring, vetting, and placement matched to your operation's needs",
+      "Full training on every agent and dashboard in your system",
+      "Day-to-day agent management, output review, and quality control",
+      "Escalation protocols and exception handling procedures",
+      "Ongoing performance reviews and system improvement recommendations",
     ],
   },
 ];
@@ -79,8 +66,8 @@ export default function ServicesPage() {
   return (
     <PageLayout
       label="Services"
-      title="Strategy meets execution at the plant level."
-      subtitle="Forge delivers premium AI transformation programs designed for operational outcomes, multi-year relationships, and real plant execution — not cheap implementations or disconnected experiments."
+      title="Four things every Forge engagement includes."
+      subtitle="Every engagement starts with an alignment session to discover what matters. Everything else — agents, dashboards, operators — is built around what that session surfaces."
     >
       <section className="bg-bone">
         {services.map((service, i) => (
@@ -128,14 +115,17 @@ export default function ServicesPage() {
         <div className="max-w-wide mx-auto px-6 lg:px-12">
           <div className="max-w-2xl">
             <h2 className="font-serif text-display-sm text-ivory mb-6">
-              Ready to discuss what transformation looks like for your operations?
+              The alignment session is where it starts.
             </h2>
+            <p className="text-base text-ivory/60 mb-8">
+              One structured session with your leadership team to surface every AI opportunity in your operation and rank it by impact. Everything else follows from that.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-ivory text-charcoal text-[13px] font-medium tracking-wide uppercase hover:bg-bone transition-colors"
               >
-                Book a strategy call
+                Book an alignment session
               </Link>
               <Link
                 href="/how-it-works"

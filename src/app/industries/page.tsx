@@ -4,33 +4,33 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Industries — Forge",
-  description: "AI transformation built for plastics, automotive, food & beverage, and heavy industrial manufacturing.",
+  description: "AI execution built exclusively for manufacturing — plastics, automotive, food & beverage, and heavy industrial.",
 };
 
 const industries = [
   {
     title: "Plastics and packaging",
-    pain: "High-speed lines with thin margins mean every minute of unplanned downtime and every percentage point of scrap directly erodes profitability. Aging equipment, inconsistent quality across shifts, and limited visibility into process drift make continuous improvement difficult at scale.",
-    opportunity: "AI-driven process monitoring can detect drift before it becomes scrap. Predictive maintenance on extruders, injection molders, and converting lines reduces unplanned stops. Cross-plant analytics help identify best practices and standardize performance.",
-    fit: "Forge understands the operational cadence of plastics and packaging plants — fast cycles, tight tolerances, and the need for solutions that work on the floor without disrupting production.",
+    pain: "High-throughput lines running tight margins. Every hour of unplanned downtime and every percentage point of scrap compounds quickly. The data exists — across machines, shifts, and plants — but no one has connected it to decisions.",
+    opportunity: "Agent automation can surface process drift before it becomes defects, automate shift reporting, and give plant managers real-time visibility across lines. The alignment session surfaces which of these is worth solving first.",
+    fit: "Forge comes in with the process, not the assumptions. The alignment session tells us where the friction is. We build the agents that remove it.",
   },
   {
     title: "Automotive suppliers",
-    pain: "Tier 1 and Tier 2 suppliers face relentless quality demands from OEMs, complex multi-part production environments, and the constant pressure to reduce cost while maintaining perfect delivery. Most plants have islands of data but no unified intelligence layer.",
-    opportunity: "Quality prediction models can catch defects earlier in the process. Machine learning on SPC data reveals patterns human analysis misses. Maintenance intelligence reduces the unplanned downtime that threatens delivery commitments.",
-    fit: "Forge builds programs that respect the rigor automotive suppliers already operate under while adding the AI capability layer that makes quality, maintenance, and efficiency gains compounding rather than incremental.",
+    pain: "Quality requirements from OEMs are relentless. Compliance, traceability, and delivery pressure create constant demand for information that's buried in systems no one can query quickly. Most plants are doing more manual work than they should.",
+    opportunity: "Automated quality tracking agents, compliance briefing agents, and production visibility dashboards eliminate the manual overhead that slows every department. The alignment session identifies which workflows are worth automating first.",
+    fit: "Forge builds around what your alignment session surfaces — not around what a software vendor assumes you need. Every agent is built for how your operation actually works.",
   },
   {
     title: "Food and beverage",
-    pain: "Perishable inputs, strict regulatory requirements, seasonal variability, and aging infrastructure create a uniquely complex operating environment. Energy costs are significant, and downtime on critical lines can mean spoiled product and missed shipments.",
-    opportunity: "Energy optimization across refrigeration, heating, and compressed air systems offers measurable savings. Predictive maintenance on fillers, conveyors, and packaging lines reduces waste. Quality analytics improve consistency and reduce holds.",
-    fit: "Forge designs programs that account for the regulatory, safety, and perishability constraints unique to food and beverage — building AI solutions that plant teams can trust and compliance teams can verify.",
+    pain: "Regulatory requirements, perishable inputs, changeover complexity, and aging infrastructure make for a uniquely demanding environment. Most teams are operating with less visibility than they should have, across more variables than any individual can track.",
+    opportunity: "Internal knowledge agents, automated compliance agents, and production briefing agents address the information burden that consumes team time and creates risk. The alignment session identifies the highest-leverage starting points.",
+    fit: "We start with what your leadership team knows is broken. The alignment session turns that knowledge into a ranked action list. Then we build.",
   },
   {
     title: "Heavy industrial and process manufacturing",
-    pain: "Capital-intensive operations with long asset lifecycles, complex process control, and high consequences for unplanned failures. Many plants run on decades-old control systems with limited digital infrastructure.",
-    opportunity: "Condition monitoring and predictive analytics on critical rotating equipment, heat exchangers, and process units can prevent catastrophic failures and extend asset life. Process optimization models improve yield and energy efficiency simultaneously.",
-    fit: "Forge has the patience and depth for heavy industrial environments — understanding that transformation here means working within existing control architectures, long maintenance windows, and the operational discipline these environments demand.",
+    pain: "Asset-intensive operations with long equipment lifecycles, complex process control, and serious consequences for anything that fails or slows. Teams are often managing more complexity than their current information systems can support.",
+    opportunity: "Executive briefing agents, maintenance decision support, and cross-department visibility dashboards address the information gaps that cost real money in these environments. The alignment session surfaces which ones matter most to your leadership.",
+    fit: "Forge doesn't come in with a solution already in mind. The alignment session is how we learn your environment. The agents we build are the answer to what your team tells us they need.",
   },
 ];
 
@@ -38,8 +38,8 @@ export default function IndustriesPage() {
   return (
     <PageLayout
       label="Industries"
-      title="Built for complex manufacturing environments"
-      subtitle="Each manufacturing environment has different constraints, systems, and economics. Forge is intentionally built around operational reality, not generic AI messaging."
+      title="Exclusively built for manufacturing."
+      subtitle="Manufacturing is where Forge focuses. Every alignment session, every agent, every operator we place is built around how these environments actually work — and what's been left on the table."
     >
       <section className="bg-bone">
         {industries.map((industry, i) => (
@@ -54,7 +54,7 @@ export default function IndustriesPage() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
                 <div>
                   <h3 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-teal mb-4">
-                    Common operational pain
+                    What we hear most
                   </h3>
                   <p className="text-sm leading-relaxed text-slate">
                     {industry.pain}
@@ -62,7 +62,7 @@ export default function IndustriesPage() {
                 </div>
                 <div>
                   <h3 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-teal mb-4">
-                    Where data and AI help
+                    Where agents help
                   </h3>
                   <p className="text-sm leading-relaxed text-slate">
                     {industry.opportunity}
@@ -70,7 +70,7 @@ export default function IndustriesPage() {
                 </div>
                 <div>
                   <h3 className="text-[11px] font-semibold tracking-[0.15em] uppercase text-teal mb-4">
-                    Why Forge fits
+                    How Forge approaches it
                   </h3>
                   <p className="text-sm leading-relaxed text-slate">
                     {industry.fit}
@@ -86,16 +86,16 @@ export default function IndustriesPage() {
         <div className="max-w-wide mx-auto px-6 lg:px-12">
           <div className="max-w-2xl">
             <h2 className="font-serif text-display-sm text-ivory mb-6">
-              Operating in a different manufacturing vertical?
+              The alignment session works in any of these environments.
             </h2>
             <p className="text-base text-ivory/60 mb-8">
-              Forge&apos;s operating model adapts to the specific constraints and economics of your environment. Let&apos;s talk about what transformation looks like for your plants.
+              We don&apos;t come in knowing exactly what you need. We come in with a process that surfaces it. That&apos;s the alignment session — and it&apos;s where every engagement starts.
             </p>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-ivory text-charcoal text-[13px] font-medium tracking-wide uppercase hover:bg-bone transition-colors"
             >
-              Book a strategy call
+              Book an alignment session
             </Link>
           </div>
         </div>
