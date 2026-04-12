@@ -7,61 +7,61 @@ import Footer from "@/components/Footer";
 const SERVICES = [
   {
     num: "01",
-    title: "Predictive maintenance\nand reliability",
-    body: "Reduce unplanned downtime and improve asset performance with AI-driven monitoring, diagnostics, and maintenance intelligence built for how plants actually run.",
+    title: "Alignment\nsession",
+    body: "We sit with leaders across every department — not to pitch, but to listen. Together we surface where AI can save time, reduce cost, or eliminate friction, then rank every opportunity by time and cost to value.",
   },
   {
     num: "02",
-    title: "Smart factory\ntransformation",
-    body: "Turn plant data into operational leverage through systems, dashboards, and decision support that get used in real manufacturing environments.",
+    title: "Custom\nAI agents",
+    body: "Internal knowledge agents, automated briefings, competitor tracking, scheduling logic — built around the specific problems your team identified in alignment. Nothing templated, nothing speculative.",
   },
   {
     num: "03",
-    title: "Quality and scrap\nintelligence",
-    body: "Identify defect patterns, process instability, and waste drivers across lines, products, and plants — before they compound.",
+    title: "Operations\ndashboards",
+    body: "Every agent comes with visibility. Dashboards built for whoever needs to see it — plant managers, team leads, or the executive suite. Multiple locations, multiple access levels.",
   },
   {
     num: "04",
-    title: "Multi-plant AI\noperating model",
-    body: "Standardize how transformation gets deployed, measured, and improved across locations — with leadership visibility built in from the start.",
+    title: "Embedded\noperators",
+    body: "We hire and train the people who run your system. Two humans in the loop minimum — managing every agent, every output, every edge case. The technology works because people are accountable for it.",
   },
 ];
 
 const STEPS = [
   {
     num: "01",
-    title: "Pilot",
-    timing: "30–45 days",
-    body: "One plant. One line. One measurable outcome — downtime, scrap, or energy. Map data and systems, establish the baseline, deliver proof you can act on.",
+    title: "Align",
+    timing: "Week 1",
+    body: "Your leadership. Every department. One structured session to surface what AI could change across your operation and what each opportunity is worth. We leave with a ranked list — you leave with clarity.",
   },
   {
     num: "02",
-    title: "Deploy",
-    timing: "Weeks 6–20",
-    body: "Forge embeds the operating layer: specialists working alongside your plant and leadership teams to stand up the systems that get used, not just demonstrated.",
+    title: "Build",
+    timing: "Weeks 2–6",
+    body: "Agents and dashboards built around exactly what came out of alignment. Not a template, not a generic tool — the specific solutions your team said they needed, built to fit how your operation actually works.",
   },
   {
     num: "03",
-    title: "Scale",
-    timing: "Month 6 onward",
-    body: "Extend the model across lines and plants with a consistent deployment framework and real-time visibility for leadership — not isolated experiments per location.",
+    title: "Operate",
+    timing: "Month 2 onward",
+    body: "Trained operators embedded into your team to run the system. You stay in control of the decisions; we keep the agents running, accurate, and improving. The model scales as new needs emerge.",
   },
 ];
 
 const OUTCOMES = [
-  "More predictable uptime.",
-  "Lower scrap and rework costs.",
-  "Better energy economics.",
-  "Faster visibility into plant issues.",
-  "Stronger cross-site operating discipline.",
-  "A transformation model — not an isolated experiment.",
+  "Your people spend less time on things agents can handle.",
+  "Leadership gets the visibility they've been asking for.",
+  "Every agent built around a real problem — not a demo use case.",
+  "A system that gets used, because trained people are running it.",
+  "Faster path to AI value than hiring a unicorn.",
+  "A model that grows as you identify the next problem.",
 ];
 
 const INDUSTRIES = [
-  { name: "Plastics & packaging",           desc: "Cycle time, scrap, and energy across high-throughput lines." },
-  { name: "Automotive suppliers",           desc: "Quality, OEE, and traceability under OEM pressure." },
-  { name: "Food & beverage",                desc: "Yield, compliance, and changeover intelligence." },
-  { name: "Heavy industrial & process",     desc: "Asset reliability and energy across complex continuous processes." },
+  { name: "Plastics & packaging",       desc: "High-throughput operations where even small efficiency improvements compound quickly across shifts and lines." },
+  { name: "Automotive suppliers",       desc: "Complex quality and compliance requirements that benefit most from automated tracking, alerts, and visibility." },
+  { name: "Food & beverage",            desc: "Yield, regulatory, and changeover complexity that creates natural, high-value opportunities for agent automation." },
+  { name: "Heavy industrial & process", desc: "Asset-intensive environments where better information systems change how decisions get made at every level." },
 ];
 
 /* ─── Page ───────────────────────────────────────────────────────── */
@@ -93,10 +93,10 @@ export default function Home() {
         <div style={{ maxWidth: "1240px", margin: "0 auto", width: "100%", paddingTop: "160px" }}>
           {/* Label */}
           <span className="section-label" style={{ marginBottom: "40px" }}>
-            AI transformation for manufacturing
+            AI execution for manufacturing
           </span>
 
-          {/* Headline — big, tight, inevitable */}
+          {/* Headline */}
           <h1
             className="font-display"
             style={{
@@ -109,7 +109,7 @@ export default function Home() {
               marginBottom: "48px",
             }}
           >
-            AI that works<br />in real plants.
+            We find where AI<br />moves your operation.
           </h1>
 
           {/* Sub */}
@@ -118,16 +118,16 @@ export default function Home() {
             fontWeight: 300,
             lineHeight: 1.6,
             color: "rgba(255,255,255,0.48)",
-            maxWidth: "520px",
+            maxWidth: "540px",
             marginBottom: "52px",
           }}>
-            Forge helps manufacturers reduce downtime, scrap, and energy waste — not in a demo, but on the floor.
+            Every engagement starts with an alignment session — not a pitch. We surface where AI closes the gap, then build and operate the system that closes it.
           </p>
 
           {/* CTAs */}
           <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
             <Link href="/contact" className="forge-btn-primary">
-              Book a strategy call
+              Book an alignment session
             </Link>
             <Link href="/how-it-works" className="forge-btn-ghost">
               See how Forge works →
@@ -144,10 +144,10 @@ export default function Home() {
             borderTop: "1px solid rgba(255,255,255,0.07)",
           }}>
             {[
-              "Predictive maintenance",
-              "Smart factory",
-              "Quality intelligence",
-              "Multi-plant programs",
+              "Alignment sessions",
+              "Custom AI agents",
+              "Operations dashboards",
+              "Embedded operators",
             ].map((cap, i) => (
               <span
                 key={i}
@@ -176,9 +176,9 @@ export default function Home() {
           gridTemplateColumns: "repeat(3, 1fr)",
         }}>
           {[
-            { n: "30–45", unit: "days",          desc: "From pilot kickoff to your first measurable outcome on the floor." },
-            { n: "3–5",   unit: "year programs",  desc: "Designed for manufacturers transforming at scale across sites." },
-            { n: "4",     unit: "plant domains",  desc: "Maintenance, quality, energy, and smart factory — interconnected." },
+            { n: "1",     unit: "alignment session",  desc: "Every engagement starts here. One structured session with your leadership to surface every AI opportunity and rank it." },
+            { n: "2+",    unit: "operators embedded",  desc: "Trained humans in the loop running every agent and dashboard we build — minimum. More for larger programs." },
+            { n: "30–45", unit: "days to first agent", desc: "From alignment session to your first AI agent live in your operation. No multi-year ramp to see results." },
           ].map((s, i) => (
             <div
               key={i}
@@ -187,7 +187,6 @@ export default function Home() {
                 paddingRight: i < 2 ? "56px" : "0",
                 paddingLeft: i > 0 ? "56px" : "0",
                 borderRight: i < 2 ? "1px solid rgba(0,0,0,0.08)" : "none",
-                borderLeft: i > 0 ? "none" : "none",
                 borderTop: "4px solid rgba(0,0,0,0.06)",
               }}
             >
@@ -232,7 +231,7 @@ export default function Home() {
       {/* ══ 3. Services ══════════════════════════════════════════════ */}
       <section style={{ background: "#1D1D1F", padding: "120px 40px" }}>
         <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-          <span className="section-label">What we solve</span>
+          <span className="section-label">What we deliver</span>
           <h2
             className="font-display"
             style={{
@@ -245,7 +244,7 @@ export default function Home() {
               marginBottom: "80px",
             }}
           >
-            What Forge helps<br />manufacturers solve.
+            Four things every<br />Forge engagement includes.
           </h2>
 
           {/* 2×2 grid with hairline dividers */}
@@ -301,7 +300,7 @@ export default function Home() {
               marginBottom: "80px",
             }}
           >
-            A better model than<br />hiring one unicorn.
+            Discover. Build.<br />Operate.
           </h2>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "72px" }}>
@@ -355,7 +354,7 @@ export default function Home() {
               marginBottom: "80px",
             }}
           >
-            What the best<br />programs create.
+            What the right<br />model creates.
           </h2>
 
           {/* 2-column outcome list */}
@@ -408,7 +407,7 @@ export default function Home() {
               marginBottom: "80px",
             }}
           >
-            Built for complex<br />manufacturing environments.
+            Exclusively built<br />for manufacturing.
           </h2>
 
           <div style={{
@@ -437,12 +436,12 @@ export default function Home() {
           </div>
 
           <p style={{ fontSize: "14px", fontWeight: 300, color: "#AEAEB2", lineHeight: 1.65, maxWidth: "520px" }}>
-            Each environment has different systems and constraints. Forge is built around operational reality, not generic AI messaging.
+            Manufacturing is where we focus. Every agent, every dashboard, every operator we place is built around how these environments actually work.
           </p>
         </div>
       </section>
 
-      {/* ══ 7. Proof architecture ════════════════════════════════════ */}
+      {/* ══ 7. Engagement tiers ══════════════════════════════════════ */}
       <section style={{ background: "#F5F5F7", padding: "120px 40px" }}>
         <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
           <span className="section-label" style={{ color: "#0B8C7E" }}>Engagement structure</span>
@@ -458,7 +457,7 @@ export default function Home() {
               marginBottom: "80px",
             }}
           >
-            How engagements<br />are structured.
+            Start focused.<br />Expand as you grow.
           </h2>
 
           <div style={{
@@ -469,9 +468,21 @@ export default function Home() {
             paddingTop: "52px",
           }}>
             {[
-              { tier: "Pilot program",      detail: "30–45 days · 1 plant or line",  desc: "Map data and systems, define the metric, deliver measurable proof of value." },
-              { tier: "Regional rollout",   detail: "3–5 plants · shared model",     desc: "Extend the proven approach across sites with a consistent operating framework." },
-              { tier: "Enterprise network", detail: "10+ plants · multi-year",       desc: "A full transformation program with leadership visibility across the entire manufacturing network." },
+              {
+                tier: "Core engagement",
+                detail: "1 agent · 1 dashboard · 2 operators",
+                desc: "One alignment session surfaces the highest-value problem. One agent solves it. One dashboard tracks it. Two trained operators run it.",
+              },
+              {
+                tier: "Expanded program",
+                detail: "3–5 agents · multi-dashboard · larger team",
+                desc: "Alignment surfaces a broader opportunity set. Multiple agents deployed in priority order with coordinated dashboards and a dedicated operator team.",
+              },
+              {
+                tier: "Enterprise network",
+                detail: "Multi-site · full operator network",
+                desc: "A complete AI operations layer across locations — with shared visibility at the executive level and operators embedded at every site.",
+              },
             ].map((p, i) => (
               <div key={i}>
                 <span className="font-mono" style={{ fontSize: "10px", color: "#AEAEB2", letterSpacing: "0.16em", textTransform: "uppercase", display: "block", marginBottom: "20px" }}>
@@ -510,8 +521,9 @@ export default function Home() {
               marginBottom: "36px",
             }}
           >
-            If your plants already<br />know they need help,<br />
-            <span style={{ color: "rgba(255,255,255,0.35)" }}>Forge is built for<br />that moment.</span>
+            The alignment session<br />is where it starts.
+            <br />
+            <span style={{ color: "rgba(255,255,255,0.35)" }}>Everything else<br />follows from that.</span>
           </h2>
 
           <p style={{
@@ -521,12 +533,12 @@ export default function Home() {
             marginBottom: "56px",
             lineHeight: 1.6,
           }}>
-            Start with a focused 30–45 day pilot. See what changes when AI actually works on your floor.
+            One session with your leadership team to surface where AI moves your operation — and what it&apos;s worth to move it.
           </p>
 
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" className="forge-btn-primary">Book a strategy call</Link>
-            <Link href="/contact" className="forge-btn-ghost">Discuss a pilot →</Link>
+            <Link href="/contact" className="forge-btn-primary">Book an alignment session</Link>
+            <Link href="/how-it-works" className="forge-btn-ghost">See how it works →</Link>
           </div>
         </div>
       </section>
