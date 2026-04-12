@@ -45,7 +45,7 @@ export default function Header() {
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <rect x="0" y="0" width="20" height="2.5" fill="white"/>
             <rect x="0" y="0" width="2.5" height="20" fill="white"/>
-            <rect x="0" y="8.75" width="12" height="2.5" fill="rgba(11,140,126,0.9)"/>
+            <rect x="0" y="8.75" width="12" height="2.5" fill="rgba(255,107,0,0.9)"/>
           </svg>
           <span style={{
             fontFamily: "'Space Grotesk', sans-serif",
@@ -70,20 +70,21 @@ export default function Header() {
           className="hidden md:inline-flex"
           style={{
             fontFamily: "'Inter', sans-serif",
-            fontWeight: 500,
-            fontSize: "13px",
-            letterSpacing: "0.01em",
-            color: "#080808",
-            background: "#FFFFFF",
-            padding: "9px 18px",
+            fontWeight: 600,
+            fontSize: "11px",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: "#ffffff",
+            background: "#ff6b00",
+            padding: "10px 20px",
             textDecoration: "none",
             transition: "background 0.2s",
             flexShrink: 0,
           }}
-          onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#F0F0F0"}
-          onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#FFFFFF"}
+          onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#e05e00"}
+          onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#ff6b00"}
         >
-          Start a pilot
+          Book alignment session
         </Link>
 
         {/* Mobile hamburger */}

@@ -15,6 +15,15 @@
   --teal-dark:   #065C53;
   --teal-bright: #00C4A7;
 
+  /* Variant industrial system */
+  --orange:        #ff6b00;
+  --orange-dim:    rgba(255,107,0,0.12);
+  --dark:          #0a0a0c;
+  --card-dark:     #121214;
+  --border-dark:   #27272a;
+  --text-primary:  #f4f4f5;
+  --text-muted:    #a1a1aa;
+
   /* Legacy aliases (inner pages) */
   --bone:        #F5F5F7;
   --stone:       #EBEBEB;
@@ -196,6 +205,158 @@ body {
   transition: color 0.2s;
 }
 .forge-footer-link:hover { color: rgba(255, 255, 255, 0.85); }
+
+/* ─── Industrial dark system (homepage) ──────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,107,0,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,107,0,0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* L-bracket corners on images */
+.img-frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.img-frame::before,
+.img-frame::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--orange);
+  border-style: solid;
+  z-index: 10;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.img-frame::before { top: 0; left: 0;   border-width: 2px 0 0 2px; }
+.img-frame::after  { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+/* Luminosity image blend */
+.blend-lum {
+  mix-blend-mode: luminosity;
+  transition: opacity 0.4s;
+}
+
+/* Deliverable row */
+.deliverable-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--border-dark);
+  min-height: 380px;
+}
+.deliverable-row:last-child { border-bottom: none; }
+.deliverable-row .d-text {
+  padding: 64px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--border-dark);
+}
+.deliverable-row.rev .d-text {
+  order: 2;
+  border-right: none;
+  border-left: 1px solid var(--border-dark);
+}
+.deliverable-row .d-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--dark);
+}
+.deliverable-row.rev .d-img { order: 1; }
+
+/* Industry photo tile */
+.industry-tile {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--dark);
+  cursor: default;
+  border: 1px solid var(--border-dark);
+  transition: border-color 0.3s;
+}
+.industry-tile:hover { border-color: var(--orange); }
+.industry-tile .tile-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,12,0.9) 0%, rgba(10,10,12,0.1) 60%);
+  z-index: 2;
+}
+.industry-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: luminosity;
+  opacity: 0.5;
+  transition: opacity 0.4s, transform 0.6s;
+}
+.industry-tile:hover img { opacity: 0.65; transform: scale(1.03); }
+.industry-tile .tile-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 32px;
+  z-index: 3;
+}
+
+/* Orange CTA button */
+.forge-btn-orange {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: var(--orange);
+  padding: 14px 28px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.forge-btn-orange:hover {
+  background: #e05e00;
+  transform: translateY(-1px);
+}
+
+/* Orange ghost button */
+.forge-btn-orange-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: transparent;
+  padding: 13px 28px;
+  text-decoration: none;
+  border: 1px solid rgba(255,107,0,0.35);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.forge-btn-orange-ghost:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+/* Orange section label */
+.section-label-orange {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+  display: block;
+  margin-bottom: 20px;
+}
 
 /* ─── Mobile nav ──────────────────────────────────────────── */
 @keyframes fadeDown {
