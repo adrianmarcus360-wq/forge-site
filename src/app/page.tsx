@@ -8,32 +8,32 @@ import Footer from "@/components/Footer";
 const DELIVERABLES = [
   {
     num: "01",
-    title: "Alignment session",
-    body: "We sit with leaders across every department — not to pitch, but to listen. Together we surface where AI can save time, reduce cost, or eliminate friction, then rank every opportunity by time and cost to value.",
+    title: "Sales & revenue operations",
+    body: "Sales account intelligence, CRM cleanup and follow-up automation, quote intake workflows, and customer expansion dashboards — built for the way your sales team actually works.",
     img: "/media/precision.jpg",
     imgAlt: "Precision machined components — CNC detail",
     rev: false,
   },
   {
     num: "02",
-    title: "Custom AI agents",
-    body: "Internal knowledge agents, automated briefings, competitor tracking, scheduling logic — built around the specific problems your team identified in alignment. Nothing templated, nothing speculative.",
+    title: "Plant & shift operations",
+    body: "Daily production dashboards, shift handoff reporting, bottleneck tracking, and SOP search — built to give operators and managers the information they need without extra work.",
     img: "/media/kuka.jpg",
     imgAlt: "KUKA industrial robots — precision automation",
     rev: true,
   },
   {
     num: "03",
-    title: "Operations dashboards",
-    body: "Every agent comes with visibility. Dashboards configured for whoever needs to see it — plant managers, team leads, or the executive suite. Multiple locations, multiple access levels.",
+    title: "Quality & maintenance",
+    body: "Audit prep assistants, nonconformance summaries, work order intelligence, and downtime pattern dashboards — systems that reduce manual effort and surface what actually needs attention.",
     img: "/media/cnc.jpg",
     imgAlt: "CNC machining — coolant and precision tooling",
     rev: false,
   },
   {
     num: "04",
-    title: "Embedded operators",
-    body: "We hire and train the people who run your system. Two humans in the loop minimum — managing every agent, every output, every edge case. The technology works because people are accountable for it.",
+    title: "Executive visibility",
+    body: "A single view across sales, operations, quality, maintenance, and customer risk. Weekly AI briefings. Multi-plant comparisons. Leadership finally has the visibility they have been asking for.",
     img: "/media/operators.jpg",
     imgAlt: "Human hands operating precision manufacturing equipment",
     rev: true,
@@ -43,52 +43,58 @@ const DELIVERABLES = [
 const STEPS = [
   {
     num: "01",
-    title: "Align",
-    timing: "Week 1",
-    body: "Your leadership. Every department. One structured session to surface what AI could change and what each opportunity is worth. We leave with a ranked list — you leave with clarity.",
+    title: "Opportunity Map",
+    timing: "Layer 1",
+    body: "We identify where AI can create value across every department. Sales, operations, quality, maintenance, and leadership — every high-value opportunity surfaced and prioritized.",
   },
   {
     num: "02",
-    title: "Build",
-    timing: "Weeks 2–6",
-    body: "Agents and dashboards built around exactly what came out of alignment. Not a template — the specific solutions your team said they needed, built to fit how your operation actually works.",
+    title: "Workflow + Data Layer",
+    timing: "Layer 2",
+    body: "We connect the system to the real work. CRM, spreadsheets, emails, SOPs, reports, ERP, MES, CMMS — whatever your team actually uses is what the system runs on.",
   },
   {
     num: "03",
-    title: "Operate",
-    timing: "Month 2 onward",
-    body: "Trained operators embedded into your team to run the system. You stay in control of the decisions; we keep the agents running, accurate, and improving.",
+    title: "AI Agents + Dashboards",
+    timing: "Layer 3",
+    body: "We build systems that help your people research, summarize, route, report, decide, and act. Useful tools, not demos — built around the specific problems your team identified.",
+  },
+  {
+    num: "04",
+    title: "Human-in-the-Loop",
+    timing: "Layer 4",
+    body: "We help staff, manage, and support the people needed to keep the system accurate and adopted. The technology works because people are accountable for it.",
   },
 ];
 
 const OUTCOMES = [
-  "Your people spend less time on things agents can handle.",
-  "Leadership gets the visibility they've been asking for.",
-  "Every agent built around a real problem — not a demo use case.",
-  "A system that gets used, because trained people are running it.",
-  "Faster path to AI value than hiring a unicorn.",
-  "A model that grows as you identify the next problem.",
+  "AI does not fail because the technology is impossible.",
+  "It fails because most companies do not know where to apply it.",
+  "Teams are already overloaded and cannot take on new systems.",
+  "Most solutions are built without enough operational context.",
+  "Forge combines strategy, workflow design, AI, and human support.",
+  "The system keeps improving after launch — not just at go-live.",
 ];
 
 const INDUSTRIES = [
   {
     name: "Plastics & packaging",
-    desc: "High-throughput operations where even small efficiency improvements compound quickly across shifts and lines.",
+    desc: "High-throughput operations where even small improvements in shift visibility, quality tracking, or CRM follow-up compound fast.",
     img: "/media/robot-arm.jpg",
   },
   {
     name: "Automotive suppliers",
-    desc: "Complex quality and compliance requirements that benefit most from automated tracking, alerts, and visibility.",
+    desc: "Complex quality and compliance requirements that benefit most from automated documentation, audit prep, and nonconformance tracking.",
     img: "/media/automotive.jpg",
   },
   {
     name: "Food & beverage",
-    desc: "Yield, regulatory, and changeover complexity that creates natural, high-value opportunities for agent automation.",
+    desc: "Yield, regulatory, and changeover complexity that creates natural, high-value opportunities for AI-assisted reporting and decision support.",
     img: "/media/operators.jpg",
   },
   {
     name: "Heavy industrial & process",
-    desc: "Asset-intensive environments where better information systems change how decisions get made at every level.",
+    desc: "Asset-intensive environments where work order intelligence, downtime pattern analysis, and executive visibility change how decisions get made.",
     img: "/media/cnc.jpg",
   },
 ];
@@ -168,7 +174,7 @@ export default function Home() {
         >
           {/* Label */}
           <span className="section-label-orange" style={{ marginBottom: "32px" }}>
-            AI execution for manufacturing
+            AI execution for manufacturing teams
           </span>
 
           {/* Headline */}
@@ -184,8 +190,8 @@ export default function Home() {
               marginBottom: "40px",
             }}
           >
-            We find where AI<br />moves your{" "}
-            <span style={{ color: "rgba(255,255,255,0.35)" }}>operation.</span>
+            AI execution for<br />
+            <span style={{ color: "rgba(255,255,255,0.35)" }}>manufacturing teams.</span>
           </h1>
 
           {/* Sub */}
@@ -200,18 +206,17 @@ export default function Home() {
               marginBottom: "48px",
             }}
           >
-            Every engagement starts with an alignment session — not a pitch.
-            We surface where AI closes the gap, then build and operate the system
-            that closes it.
+            Forge helps manufacturers identify, build, and operate practical AI systems that improve sales, operations, quality, maintenance, and leadership visibility.
+            We do not sell generic AI strategy. We help your team turn real workflows, existing data, and day-to-day bottlenecks into working systems your people can actually use.
           </p>
 
           {/* CTAs */}
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "80px" }}>
             <Link href="/contact" className="forge-btn-orange">
-              Book an alignment session
+              Book an AI Opportunity Session
             </Link>
             <Link href="/how-it-works" className="forge-btn-orange-ghost">
-              See how Forge works →
+              See Where Forge Can Help →
             </Link>
           </div>
 
@@ -226,10 +231,10 @@ export default function Home() {
             }}
           >
             {[
-              "Alignment sessions",
-              "Custom AI agents",
+              "Sales & CRM intelligence",
               "Operations dashboards",
-              "Embedded operators",
+              "Quality & maintenance AI",
+              "Executive visibility",
             ].map((cap, i) => (
               <span
                 key={i}
@@ -271,19 +276,19 @@ export default function Home() {
         >
           {[
             {
-              n: "1",
-              unit: "alignment session",
-              desc: "Every engagement starts here. One structured session with your leadership to surface every AI opportunity and rank it by impact.",
+              n: "10–25",
+              unit: "AI use cases found",
+              desc: "Every Opportunity Sprint surfaces 10–25 possible AI applications across sales, operations, quality, maintenance, and leadership.",
             },
             {
-              n: "2+",
-              unit: "operators embedded",
-              desc: "Trained humans in the loop running every agent and dashboard we build — minimum. More for larger programs.",
+              n: "3–5",
+              unit: "priorities identified",
+              desc: "We rank every opportunity by value and feasibility, then focus on the top 3–5 that can move fastest.",
             },
             {
               n: "30–45",
-              unit: "days to first agent",
-              desc: "From alignment session to your first AI agent live in your operation. No multi-year ramp.",
+              unit: "days to clarity",
+              desc: "From kickoff to a clear roadmap, prioritized use cases, and your first system identified. No multi-year ramp.",
             },
           ].map((s, i) => (
             <div
@@ -341,7 +346,7 @@ export default function Home() {
       {/* ══ 3. DELIVERABLES ════════════════════════════════════════ */}
       <section style={{ background: "var(--dark)", borderBottom: "1px solid var(--border-dark)" }}>
         <div className="forge-section-header" style={{ maxWidth: "1240px", margin: "0 auto", padding: "96px 40px 0" }}>
-          <span className="section-label-orange">What we deliver</span>
+          <span className="section-label-orange">What we do</span>
           <h2
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
@@ -354,7 +359,7 @@ export default function Home() {
               marginBottom: "64px",
             }}
           >
-            Four things every<br />Forge engagement includes.
+            Forge builds practical AI systems for manufacturing companies.
           </h2>
         </div>
 
@@ -448,7 +453,7 @@ export default function Home() {
         }}
       >
         <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-          <span className="section-label-orange">Three stages, one engagement</span>
+          <span className="section-label-orange">The Forge System</span>
 
           <div className="forge-steps-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "var(--border-dark)" }}>
             {STEPS.map((s) => (
@@ -536,7 +541,7 @@ export default function Home() {
         }}
       >
         <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-          <span className="section-label-orange">What changes</span>
+          <span className="section-label-orange">Why Forge</span>
           <h2
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
@@ -549,7 +554,7 @@ export default function Home() {
               marginBottom: "64px",
             }}
           >
-            What the right<br />model creates.
+            Why most AI fails — and why Forge does not.
           </h2>
 
           <div
@@ -626,7 +631,7 @@ export default function Home() {
               marginBottom: "48px",
             }}
           >
-            Exclusively built<br />for manufacturing.
+            Built exclusively<br />for manufacturers.
           </h2>
 
           <div
@@ -684,7 +689,7 @@ export default function Home() {
         }}
       >
         <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-          <span className="section-label-orange">Engagement structure</span>
+          <span className="section-label-orange">Where to start</span>
           <h2
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
@@ -697,7 +702,7 @@ export default function Home() {
               marginBottom: "64px",
             }}
           >
-            Start focused.<br />Expand as you grow.
+            Two ways to begin.<br />Both lead to working systems.
           </h2>
 
           <div
@@ -711,19 +716,19 @@ export default function Home() {
           >
             {[
               {
-                tier: "Core",
-                detail: "1 agent · 1 dashboard · 2 operators",
-                desc: "One alignment session surfaces the highest-value problem. One agent solves it. One dashboard tracks it. Two trained operators run it.",
+                tier: "AI Opportunity Sprint",
+                detail: "30–45 days · stakeholder interviews · roadmap",
+                desc: "We map high-value AI opportunities across your business, review your tools and data, prioritize the top 3–5 use cases, and deliver a practical roadmap with a clear first system to build.",
               },
               {
-                tier: "Expanded",
-                detail: "3–5 agents · multi-dashboard · larger team",
-                desc: "Alignment surfaces a broader opportunity set. Multiple agents deployed in priority order with coordinated dashboards and a dedicated operator team.",
+                tier: "Starter Build Package",
+                detail: "1 agent · 1 dashboard · 1 operating workflow",
+                desc: "After the Opportunity Sprint, we build the first working system. One AI agent, one dashboard, and one operating workflow — built around your top-priority use case and ready for your team to use.",
               },
               {
-                tier: "Enterprise",
-                detail: "Multi-site · full operator network",
-                desc: "A complete AI operations layer across locations — with shared visibility at the executive level and operators embedded at every site.",
+                tier: "Full Program",
+                detail: "Multi-agent · multi-site · operator network",
+                desc: "A complete AI operations layer across departments and locations — with shared executive visibility, coordinated dashboards, and operators embedded at every level.",
               },
             ].map((p, i) => (
               <div
@@ -826,7 +831,7 @@ export default function Home() {
 
         <div className="forge-cta-inner" style={{ position: "relative", zIndex: 3, maxWidth: "780px", margin: "0 auto" }}>
           <span className="section-label-orange" style={{ justifyContent: "center" }}>
-            Ready to start
+            Start here
           </span>
 
           <h2
@@ -840,7 +845,7 @@ export default function Home() {
               marginBottom: "32px",
             }}
           >
-            The alignment session<br />is where it{" "}
+            The Opportunity Sprint<br />is where it{" "}
             <span style={{ color: "var(--orange)" }}>starts.</span>
             <br />
             <span style={{ color: "rgba(255,255,255,0.25)" }}>Everything else follows.</span>
@@ -858,8 +863,7 @@ export default function Home() {
               margin: "0 auto 48px",
             }}
           >
-            One session with your leadership team to surface where AI moves your
-            operation — and what it&apos;s worth to move it.
+            A focused 30–45 day engagement to uncover where AI can create immediate value inside your manufacturing business — and build the roadmap to get there.
           </p>
 
           <div
@@ -871,10 +875,10 @@ export default function Home() {
             }}
           >
             <Link href="/contact" className="forge-btn-orange">
-              Book an alignment session
+              Book an AI Opportunity Session
             </Link>
             <Link href="/how-it-works" className="forge-btn-orange-ghost">
-              See how it works →
+              See How Forge Works →
             </Link>
           </div>
         </div>
